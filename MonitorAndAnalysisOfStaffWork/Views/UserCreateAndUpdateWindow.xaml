@@ -1,0 +1,40 @@
+﻿<Window x:Class="MonitorAndAnalysisOfStaffWork.Views.UserCreateAndUpdateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitorAndAnalysisOfStaffWork.Views"
+        mc:Ignorable="d"
+        Title="Создание или обновление учетной записи" Height="400" Width="400">
+    <Grid Margin="20">
+        <!-- Заголовок -->
+        <TextBlock x:Name="TitleWindow" Text="Добавить новую учетную запись" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" />
+
+        <!-- Метка для имени пользователя -->
+        <TextBlock Text="Имя пользователя:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,30,5,0" />
+        <TextBox x:Name="UsernameTextBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,50,5,0" />
+
+        <!-- Метка для пароля -->
+        <TextBlock Text="Пароль:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,80,5,0" />
+        <PasswordBox x:Name="PasswordBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,100,5,0" />
+
+        <!-- Метка для пароля -->
+        <TextBlock Text="Повторите пароль:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,130,5,0" />
+        <PasswordBox x:Name="PasswordRepeatBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,150,5,0" />
+
+
+        <!-- Метка для полного имени -->
+        <TextBlock Text="Полное имя:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,180,5,0" />
+        <TextBox x:Name="FullNameTextBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,200,5,0" />
+
+        <!-- Выпадающий список для выбора роли -->
+        <TextBlock Text="Роль:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,230,5,0" />
+        <ComboBox x:Name="RoleComboBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,250,5,0" />
+
+        <!-- Кнопки для сохранения и отмены -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
+            <Button Style="{DynamicResource btn-success}" Content="Сохранить" Width="100" Click="SaveButton_Click" />
+            <Button Style="{DynamicResource btn-danger}" Content="Отмена" Width="100" Click="CancelButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>

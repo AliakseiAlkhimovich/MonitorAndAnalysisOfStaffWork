@@ -1,0 +1,52 @@
+﻿<Page x:Class="MonitorAndAnalysisOfStaffWork.Views.ManufacturedDetailManagementPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MonitorAndAnalysisOfStaffWork.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Изготовленные детали" Background="#ffffff">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="75"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!-- Row 0 -->
+        <TextBlock Grid.Row="0" Text="Изготовленные детали" FontSize="18" FontWeight="Bold" VerticalAlignment="Top" />
+        <!-- Row 1 -->
+        <Button Style="{DynamicResource btn-success-sm}" Grid.Row="1" Content="Добавить деталь" Click="CreateButton_Click" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Label>с</Label>
+            <DatePicker x:Name="StartDateDatePicker" />
+            <Label >по</Label>
+            <DatePicker x:Name="EndDateDatePicker"/>
+            <Button Style="{DynamicResource btn-success-sm}" Content="Сформировать отчет" Click="OrderButton_Click"/>
+        </StackPanel>
+        <!-- Row 2 -->
+        <Label Grid.Row="2" Grid.ColumnSpan="2" Height="25" VerticalAlignment="Top" Margin="0,0,0,0" >Деталь</Label>
+        <TextBox Grid.Row="2" Grid.ColumnSpan="2" Name="DetailSearchBox" Height="25" TextChanged="DetailSearchBox_TextChanged" VerticalAlignment="Top" Margin="0,25,0,0"/>
+        <Label Grid.Row="2" Grid.ColumnSpan="2" Height="21" VerticalAlignment="Top" Margin="0,46,0,0" FontSize="9">Введите номер, наименование или обозначение детали (мин. 3 символа)</Label>
+        <!-- Row 3 -->
+        <DataGrid Grid.Row="3" Name="DetailDataGrid" ItemsSource="{Binding FilteredDetails}" AutoGenerateColumns="False" IsReadOnly="True" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Дата" Width="75" Binding="{Binding ManufactureDateString}"/>
+                <DataGridTextColumn Header="Сотрудник" Width="*" Binding="{Binding EmployeeFullName}"/>
+                <DataGridTextColumn Header="Деталь" Width="*" Binding="{Binding DetailName}"/>
+                <DataGridTextColumn Header="Количество" Width="80" Binding="{Binding Quantity}"/>
+                <DataGridTemplateColumn Header="" Width="125">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Button Style="{DynamicResource btn-view-datagrid}" Content="Просмотр" Click="ViewDataGridButton_Click" />
+                                <Button Style="{DynamicResource btn-delete-datagrid}" Content="Удалить" Click="DeleteDataGridButton_Click"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>
