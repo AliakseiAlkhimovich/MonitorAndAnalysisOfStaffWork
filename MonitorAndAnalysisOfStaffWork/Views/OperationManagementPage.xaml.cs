@@ -143,8 +143,21 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         /// <param name="e"></param>
         private async void DetailListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            DetailEntity? detail = DetailListView.SelectedItem as DetailEntity 
-                ?? throw new Exception("Не удалось получить деталь (DetailListView_SelectionChanged)");
+            // Проверяем, есть ли выбранный элемент
+            if (DetailListView.SelectedItem == null)
+            {
+                // Если нет, просто выходим из метода
+                return;
+            }
+
+            // Пробуем привести выбранный элемент к типу DetailEntity
+            DetailEntity? detail = DetailListView.SelectedItem as DetailEntity;
+            // Проверяем, удалось ли привести к типу
+            if (detail == null)
+            {
+                throw new Exception("Не удалось получить деталь (DetailListView_SelectionChanged)");
+            }
+
             try
             {
                 await UpdateOperations(detail);
