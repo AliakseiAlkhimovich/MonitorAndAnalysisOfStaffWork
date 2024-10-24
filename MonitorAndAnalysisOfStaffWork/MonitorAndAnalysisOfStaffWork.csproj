@@ -6,10 +6,15 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>im_7f5dd188-d6ce-42c7-a1ac-d02c2c780f5b.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="view-icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="im_7f5dd188-d6ce-42c7-a1ac-d02c2c780f5b.ico" />
   </ItemGroup>
 
   <ItemGroup>

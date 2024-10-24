@@ -115,7 +115,6 @@ namespace MonitorAndAnalysisOfStaffWork.Views
                 TitleTextBlock.Text = $"Редактирование детали {UpdateManufacturedDetail.DetailName}";
                 ManufactureDateDatePicker.SelectedDate = UpdateManufacturedDetail.ManufactureDate;
                 QuantityTextBox.Text = UpdateManufacturedDetail.Quantity.ToString();
-
             }
 
             if (SelectedEmployee != null)
@@ -231,7 +230,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
             {
                 // Если ничего не выбрано или выбранный элемент не EmployeeEntity
                 SelectedEmployee = null; // Сбрасываем выбранного сотрудника
-               // SelectedEmployeeLabel.Content = "Выберите сотрудника"; // Уведомление пользователю
+                SelectedEmployeeLabel.Content = "Выберите сотрудника"; // Уведомление пользователю
             }
         }
 
@@ -284,7 +283,8 @@ namespace MonitorAndAnalysisOfStaffWork.Views
             }
             else
             {
-                // Если detail равно null, сбрасываем выбранную деталь и обновляем интерфейс SelectedDetail = null;
+                // Если detail равно null, сбрасываем выбранную деталь и обновляем интерфейс
+                SelectedDetail = null;
                 SelectedDetailLabel.Content = "Выберите деталь"; // Уведомление пользователю }
             }
         }
