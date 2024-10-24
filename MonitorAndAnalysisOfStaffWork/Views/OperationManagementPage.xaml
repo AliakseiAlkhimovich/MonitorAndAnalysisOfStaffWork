@@ -47,7 +47,7 @@
                         <GridViewColumn Header="">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Content="Удалить" Click="DeleteButton_Click" Tag="{Binding}" />
+                                    <Button Style="{DynamicResource btn-delete-datagrid}" Content="Удалить" Click="DeleteButton_Click" Tag="{Binding}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
