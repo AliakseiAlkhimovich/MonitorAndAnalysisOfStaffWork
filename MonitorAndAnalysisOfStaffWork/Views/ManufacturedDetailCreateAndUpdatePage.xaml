@@ -1,0 +1,96 @@
+﻿<Window x:Class="MonitorAndAnalysisOfStaffWork.Views.ManufacturedDetailCreateAndUpdatePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitorAndAnalysisOfStaffWork.Views"
+        mc:Ignorable="d"
+        Title="Добавление или редактирование изготовленной детали" MinWidth="700" MinHeight="500" Loaded="Window_Loaded">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock x:Name="TitleTextBlock" Text="Добавление новой детали" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        </StackPanel>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="5" Background="#eeeeee">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <!-- -->
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Height="25" VerticalAlignment="Top" Margin="0,0,0,0" >Сотрудник</Label>
+                <TextBox Grid.Row="0" Grid.ColumnSpan="2" Name="EmployeeSearchBox" Height="25" TextChanged="EmployeeSearchBox_TextChanged" VerticalAlignment="Top" Margin="0,25,0,0"/>
+                <Label Grid.Row="0" Grid.ColumnSpan="2" Height="21" VerticalAlignment="Top" Margin="0,46,0,0" FontSize="9">Введите ФИО или табельный номер (мин. 3 символа)</Label>
+                <!-- -->
+                <ListView Grid.Row="1" Grid.Column="0" Name="EmployeeListView" ItemsSource="{Binding FilteredEmployees}" SelectionChanged="EmployeeListView_SelectionChanged">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Табельный номер" DisplayMemberBinding="{Binding Number}"/>
+                            <GridViewColumn Header="ФИО" DisplayMemberBinding="{Binding FullName}"/>
+                            <GridViewColumn Header="Должность" DisplayMemberBinding="{Binding Position}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <!-- -->
+                <Label Grid.Row="2" x:Name="SelectedEmployeeLabel" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">...</Label>
+            </Grid>
+
+
+            <Grid Grid.Column="1" Margin="5" Background="#eeeeee">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="75"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="25"/>
+                </Grid.RowDefinitions>
+                <!-- -->
+                <Label Grid.Row="0" Height="25" VerticalAlignment="Top" Margin="0,0,0,0" >Деталь</Label>
+                <TextBox Grid.Row="0" Name="DetailSearchBox" Height="25" TextChanged="DetailSearchBox_TextChanged" VerticalAlignment="Top" Margin="0,25,0,0"/>
+                <Label Grid.Row="0" Height="21" VerticalAlignment="Top" Margin="0,46,0,0" FontSize="9">Введите номер, наименование или обозначение детали (мин. 3 символа)</Label>
+                <!-- -->
+                <ListView Grid.Row="1" Name="DetailListView" ItemsSource="{Binding FilteredDetails}" SelectionChanged="DetailListView_SelectionChanged"  Background="#FFEEEEEE">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Наименование" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Номер детали (артикул)" DisplayMemberBinding="{Binding Number}"/>
+                            <GridViewColumn Header="Обозначение"  DisplayMemberBinding="{Binding Designation}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <!-- -->
+                <Label Grid.Row="2" x:Name="SelectedDetailLabel" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">...</Label>
+            </Grid>
+        </Grid>
+        
+
+        <StackPanel Grid.Row="2">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <TextBlock Text="Дата изготовления деталей:" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <DatePicker x:Name="ManufactureDateDatePicker" Width="170" VerticalAlignment="Center" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,5,0,0">
+                <TextBlock Grid.Column="1" Text="Количество изготовленных деталей:" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <TextBox Grid.Column="1" Name="QuantityTextBox" Width="150" VerticalAlignment="Center"
+                  PreviewTextInput="NumericTextBox_PreviewTextInput" PreviewKeyDown="NumericTextBox_PreviewKeyDown" />
+                <TextBlock Grid.Column="1" Text="шт" VerticalAlignment="Center" Margin="5,0,0,0" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
+            <Button Style="{DynamicResource btn-success}" Content="Сохранить" Width="100" Click="SaveButton_Click" />
+            <Button Style="{DynamicResource btn-danger}" Content="Отмена" Width="100" Click="CancelButton_Click" />
+        </StackPanel>
+
+    </Grid>
+</Window>

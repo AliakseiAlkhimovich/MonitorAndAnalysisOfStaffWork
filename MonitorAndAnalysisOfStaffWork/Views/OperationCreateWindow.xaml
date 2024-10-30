@@ -1,0 +1,50 @@
+﻿<Window x:Class="MonitorAndAnalysisOfStaffWork.Views.OperationCreateWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MonitorAndAnalysisOfStaffWork.Views"
+        mc:Ignorable="d"
+        Title="Добавление новой операции" Width="400">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition MinHeight="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Добавление новой операции" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <TextBlock Text="для детали" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" />
+            <TextBlock Text="..." Name="DetailNameTextBox" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        </StackPanel>
+
+        <TextBlock Grid.Row="1" Text="Тип операции:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,0,5,0" />
+        <ComboBox Grid.Row="1" x:Name="OperationTypeComboBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,20,5,0" />
+
+        <TextBlock Grid.Row="2" Text="Стандартное время выполнения операции:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,0,5,0" />
+        <Grid Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,20,5,0" >
+
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBox Grid.Row="0" Grid.Column="0" Name="HoursTextBox" MaxLength="2" PreviewTextInput="NumericTextBox_PreviewTextInput" PreviewKeyDown="NumericTextBox_PreviewKeyDown"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Name="MinutesTextBox" MaxLength="2" PreviewTextInput="NumericTextBox_PreviewTextInput" PreviewKeyDown="NumericTextBox_PreviewKeyDown"/>
+            <TextBox Grid.Row="0" Grid.Column="2" Name="SecondsTextBox" MaxLength="2" PreviewTextInput="NumericTextBox_PreviewTextInput" PreviewKeyDown="NumericTextBox_PreviewKeyDown"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Часы" HorizontalAlignment="Center" />
+            <TextBlock Grid.Row="1"  Grid.Column="1" Text="Минуты" HorizontalAlignment="Center" />
+            <TextBlock Grid.Row="1"  Grid.Column="2" Text="Секунды" HorizontalAlignment="Center" />
+        </Grid>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
+            <Button Style="{DynamicResource btn-success}" Content="Сохранить" Width="100" Click="SaveButton_Click" />
+            <Button Style="{DynamicResource btn-danger}" Content="Отмена" Width="100" Click="CancelButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
