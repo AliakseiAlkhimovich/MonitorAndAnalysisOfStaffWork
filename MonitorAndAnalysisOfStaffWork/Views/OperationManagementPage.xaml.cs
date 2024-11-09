@@ -1,22 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MonitorAndAnalysisOfStaffWork.Entities;
 using MonitorAndAnalysisOfStaffWork.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace MonitorAndAnalysisOfStaffWork.Views
 {
@@ -125,7 +112,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
                 {
                     details = await ServiceDetail.List();
                 }
-                await ClearDetailListView();
+                ClearDetailListView();
                 foreach (DetailEntity detail in details)
                 {
                     FilteredDetails.Add(detail);
@@ -181,7 +168,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
 
         private async void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            await ClearDetailListView();
+            ClearDetailListView();
             List<DetailEntity> details = await ServiceDetail.List();
             foreach (DetailEntity detail in details)
             {
@@ -190,7 +177,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
 
         }
 
-        private async Task ClearDetailListView()
+        private void ClearDetailListView()
         {
             DetailListView.SelectedItem = null;
             FilteredDetails.Clear();

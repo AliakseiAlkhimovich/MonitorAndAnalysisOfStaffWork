@@ -92,7 +92,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void DetailSearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void DetailSearchBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
             {

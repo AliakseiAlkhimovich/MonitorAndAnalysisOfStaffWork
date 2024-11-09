@@ -146,7 +146,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void CancelButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
