@@ -43,7 +43,7 @@ namespace MonitorAndAnalysisOfStaffWork
             }
         }
 
-        // Метод для вызова события при изменении свойства
+         //Метод для вызова события при изменении свойства
         private static void OnStaticPropertyChanged(string propertyName)
         {
             StaticPropertyChanged?.Invoke(null, new PropertyChangedEventArgs(propertyName));

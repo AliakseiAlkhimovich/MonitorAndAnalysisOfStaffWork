@@ -1,13 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using MonitorAndAnalysisOfStaffWork.Entities;
 using MonitorAndAnalysisOfStaffWork.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonitorAndAnalysisOfStaffWork
 {

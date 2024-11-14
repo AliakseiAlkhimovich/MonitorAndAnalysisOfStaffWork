@@ -34,7 +34,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
 
         public WorkTimeLogCreateWindow(EmployeeEntity employee)
         {
-            ServiceWorkTimeLog = App.AppHost.Services.GetService<WorkTimeLogService>()
+            ServiceWorkTimeLog = App.AppHost?.Services.GetService<WorkTimeLogService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(WorkTimeLogService)}");
 
             InitializeComponent();

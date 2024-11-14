@@ -1,10 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 using System.IO;
 using System.Windows;
-
 using Microsoft.Extensions.Hosting;
 using MonitorAndAnalysisOfStaffWork.Services;
 
@@ -16,7 +14,7 @@ namespace MonitorAndAnalysisOfStaffWork
     /// </summary>
     public partial class App : Application
     {
-        public static IHost AppHost { get; private set; }
+        public static IHost? AppHost { get; private set; }
         public IConfiguration Configuration { get; }
 
         public App()
@@ -54,7 +52,14 @@ namespace MonitorAndAnalysisOfStaffWork
             await AppHost.StartAsync();
 
             // Запуск главного окна через сервисы
-            var mainWindow = AppHost.Services.GetRequiredService<MainWindow>();
+            var mainWindow = AppHost.Services.GetRequiredService<MainWindow>()!; // Используем оператор "!" для подавления предупреждений
+
+            // Если mainWindow равен null, выбрасываем исключение
+            if (mainWindow == null)
+            {
+                throw new InvalidOperationException("MainWindow service not registered.");
+            }
+
             mainWindow.Show();
 
             base.OnStartup(e);
@@ -63,7 +68,10 @@ namespace MonitorAndAnalysisOfStaffWork
         protected override async void OnExit(ExitEventArgs e)
         {
             // Остановка хоста
-            await AppHost.StopAsync();
+            if (AppHost != null)
+            {
+                await AppHost.StopAsync();
+            }
             base.OnExit(e);
         }
     }

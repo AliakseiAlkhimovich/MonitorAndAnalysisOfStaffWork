@@ -38,7 +38,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public DetailCreateAndUpdateWindow()
         {
             InitializeComponent();
-            ServiceDetail = App.AppHost.Services.GetService<DetailService>()
+            ServiceDetail = App.AppHost?.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");
         }
         /// <summary>
@@ -47,7 +47,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public DetailCreateAndUpdateWindow(DetailEntity updateDetail)
         {
             InitializeComponent();
-            ServiceDetail = App.AppHost.Services.GetService<DetailService>()
+            ServiceDetail = App.AppHost?.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");
             UpdateDetail = updateDetail;
 

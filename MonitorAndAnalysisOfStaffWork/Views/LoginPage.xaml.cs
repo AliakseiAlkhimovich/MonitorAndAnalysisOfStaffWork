@@ -21,7 +21,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public LoginPage()
         {
             InitializeComponent();
-            ServiceAuthentication = App.AppHost.Services.GetService<AuthenticationService>() 
+            ServiceAuthentication = App.AppHost?.Services.GetService<AuthenticationService>() 
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(AuthenticationService)}");
         }
 
