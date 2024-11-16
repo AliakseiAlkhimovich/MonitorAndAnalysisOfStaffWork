@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MonitorAndAnalysisOfStaffWork.Entities
 {
@@ -16,6 +11,7 @@ namespace MonitorAndAnalysisOfStaffWork.Entities
     [Comment("Учетную запись пользователя")]
     public class UserEntity
     {
+       
         /// <summary>
         /// Идентификатор пользователя
         /// </summary>
@@ -51,14 +47,22 @@ namespace MonitorAndAnalysisOfStaffWork.Entities
         /// Ссылка на роль пользователя.
         /// </summary>
         [ForeignKey(nameof(RoleId))]
-        public virtual RoleEntity Role { get; set; }
+        public virtual RoleEntity? Role { get; set; }
 
 
         /// <summary>
         /// Задан ли пароль
         /// </summary>
         [NotMapped]
-        public string HasPasswordString { get { return string.IsNullOrEmpty(PasswordHash) ? "Пароль не задан" : "Пароль задан"; } }
+        private const string V = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855";
+        public string HasPasswordString
+        {
+            get
+            {
+                return string.IsNullOrWhiteSpace(PasswordHash) ||
+                    PasswordHash == V ? "Пароль не задан" : "Пароль задан";
+            }
+        }
 
 
         /// <summary>

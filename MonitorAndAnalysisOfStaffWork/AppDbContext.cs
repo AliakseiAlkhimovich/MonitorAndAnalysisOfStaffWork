@@ -43,7 +43,7 @@ namespace MonitorAndAnalysisOfStaffWork
             modelBuilder.Entity<UserEntity>().Property(u => u.Id).UseIdentityColumn(2, 1);
 
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             // Конфигурация строки подключения для миграций
             if (!optionsBuilder.IsConfigured)
@@ -53,5 +53,6 @@ namespace MonitorAndAnalysisOfStaffWork
                 //optionsBuilder.UseSqlServer("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=maaosw;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
             }
         }
+        */
     }
 }

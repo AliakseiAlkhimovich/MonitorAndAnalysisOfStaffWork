@@ -24,8 +24,7 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Имя пользователя:"  FontSize="14" VerticalAlignment="Center"/>
-            <TextBox Grid.Row="0" Grid.Column="1" x:Name="UsernameTextBox" FontSize="14" VerticalAlignment="Center"/>
-
+            <ComboBox Grid.Row="0" Grid.Column="1" x:Name="UsernameTextBox" VerticalAlignment="Center"  Background="White" BorderBrush="White" IsEditable="True" Height="21"/>
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Пароль:" FontSize="14" VerticalAlignment="Center"/>
             <PasswordBox  Grid.Row="1" Grid.Column="1" x:Name="PasswordBox" FontSize="14" VerticalAlignment="Center"/>
         </Grid>

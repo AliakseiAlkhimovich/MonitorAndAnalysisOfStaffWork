@@ -1,20 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using MonitorAndAnalysisOfStaffWork.Entities;
 using MonitorAndAnalysisOfStaffWork.Services;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace MonitorAndAnalysisOfStaffWork.Views
 {
@@ -46,7 +34,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public UserCreateAndUpdateWindow()
         {
             InitializeComponent();
-            ServiceUser = App.AppHost.Services.GetService<UserService>()
+            ServiceUser = App.AppHost?.Services.GetService<UserService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(UserService)}");
             ServiceAuthentication = App.AppHost.Services.GetService<AuthenticationService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(AuthenticationService)}");
@@ -61,7 +49,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public UserCreateAndUpdateWindow(UserEntity updateUser)
         {
             InitializeComponent();
-            ServiceUser = App.AppHost.Services.GetService<UserService>()
+            ServiceUser = App.AppHost?.Services.GetService<UserService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(UserService)}");
             ServiceAuthentication = App.AppHost.Services.GetService<AuthenticationService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(AuthenticationService)}");
@@ -94,7 +82,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
 
-            if (string.IsNullOrEmpty(UsernameTextBox.Text) || PasswordBox.Password == string.Empty || PasswordRepeatBox.Password == string.Empty || FullNameTextBox.Text == string.Empty || RoleComboBox.SelectedItem == null)
+            if (string.IsNullOrEmpty(UsernameTextBox.Text)  || FullNameTextBox.Text == string.Empty || RoleComboBox.SelectedItem == null)
             {
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;

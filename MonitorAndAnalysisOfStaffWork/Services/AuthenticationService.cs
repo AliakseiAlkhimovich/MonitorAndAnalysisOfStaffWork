@@ -86,6 +86,7 @@ namespace MonitorAndAnalysisOfStaffWork.Services
         {
             return ContextApp.Roles.AsNoTracking().ToList();
         }
+ 
 
     }
 }
