@@ -86,7 +86,15 @@ namespace MonitorAndAnalysisOfStaffWork.Services
         {
             return ContextApp.Roles.AsNoTracking().ToList();
         }
- 
+
+        /// <summary>
+        /// Получить имена всех пользователей
+        /// </summary>
+        /// <returns></returns>
+        public async Task<IEnumerable<string>> GetAllUsernames()
+        {
+            return await ContextApp.Users.Select(u => u.Username).ToListAsync();
+        }
 
     }
 }

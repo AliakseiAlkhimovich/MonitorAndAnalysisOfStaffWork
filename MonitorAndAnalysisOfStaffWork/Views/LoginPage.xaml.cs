@@ -23,8 +23,21 @@ namespace MonitorAndAnalysisOfStaffWork.Views
             InitializeComponent();
             ServiceAuthentication = App.AppHost?.Services.GetService<AuthenticationService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(AuthenticationService)}");
+            PopulateUsernames();
         }
 
+        private async void PopulateUsernames()
+        {
+            try
+            {
+                var usernames = await ServiceAuthentication.GetAllUsernames();
+                UsernameTextBox.ItemsSource = usernames;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка загрузки пользователей", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
