@@ -58,7 +58,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public async void Load()
         {
             List<ManufacturedDetailEntity> details = [];
-            if (string.IsNullOrEmpty(Search) || Search.Length < 3)
+            if (string.IsNullOrEmpty(Search) || Search.Length < 1)
             {
                 details = await ServiceManufacturedDetail.List();
             }
@@ -95,7 +95,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
 
 
         /// <summary>
-        /// Собтие на кнопку - Добавить деталь
+        /// Событие на кнопку - Добавить деталь
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
