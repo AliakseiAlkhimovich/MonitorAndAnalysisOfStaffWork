@@ -2,6 +2,5 @@
 
 Во вкладке "Консоль диспетчера пакетов" необходимо выбрать проект по умолчанию - текущий
 Remove-Migration
-Add-Migration Init
-Add-Migration Up3
+Add-Migration 
 Update-Database
