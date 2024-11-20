@@ -61,6 +61,7 @@ namespace MonitorAndAnalysisOfStaffWork.Services
             // Используем AsNoTracking отключает отслеживание изменений для первой операции
             List<int> detailIds = await ContextApp.Details
                 .AsNoTracking()
+                .AsNoTracking()
                 .Where(x => x.Name.ToLower().Contains(search) || x.Designation.ToLower().Contains(search) || x.Number.ToLower().Contains(search))
                 .Select(x => x.Id)
                 .ToListAsync();
