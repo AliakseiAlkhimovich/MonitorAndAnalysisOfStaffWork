@@ -58,7 +58,7 @@ namespace MonitorAndAnalysisOfStaffWork.Services
         {
             search = search.ToLower();
 
-            // Используем AsNoTracking для первой операции
+            // Используем AsNoTracking отключает отслеживание изменений для первой операции
             List<int> detailIds = await ContextApp.Details
                 .AsNoTracking()
                 .Where(x => x.Name.ToLower().Contains(search) || x.Designation.ToLower().Contains(search) || x.Number.ToLower().Contains(search))
