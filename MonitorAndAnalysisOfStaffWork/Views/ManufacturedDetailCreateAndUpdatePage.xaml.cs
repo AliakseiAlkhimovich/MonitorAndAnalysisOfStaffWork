@@ -162,7 +162,8 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         private void NumericTextBox_PreviewKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Back || e.Key == Key.Delete ||
-                e.Key == Key.Left || e.Key == Key.Right || e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
+                e.Key == Key.Left || e.Key == Key.Right ||
+                e.Key >= Key.NumPad0 && e.Key <= Key.NumPad9)
             {
                 // Разрешаем клавиши удаления и стрелки
                 e.Handled = false;

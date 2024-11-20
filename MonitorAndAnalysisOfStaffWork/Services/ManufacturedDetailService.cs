@@ -57,10 +57,14 @@ namespace MonitorAndAnalysisOfStaffWork.Services
         public async Task<List<ManufacturedDetailEntity>> ListBySearch(string search)
         {
             search = search.ToLower();
+
+            // Используем AsNoTracking для первой операции
             List<int> detailIds = await ContextApp.Details
+                .AsNoTracking()
                 .Where(x => x.Name.ToLower().Contains(search) || x.Designation.ToLower().Contains(search) || x.Number.ToLower().Contains(search))
                 .Select(x => x.Id)
                 .ToListAsync();
+
             return await ContextApp.ManufacturedDetails
                 .Include(x => x.Employee)
                 .Include(x => x.Detail)
