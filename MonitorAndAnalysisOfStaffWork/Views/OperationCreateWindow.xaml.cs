@@ -28,7 +28,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public OperationCreateWindow(DetailEntity selectedDetail)
         {
             InitializeComponent();
-            ServiceOperation = App.AppHost.Services.GetService<OperationService>()
+            ServiceOperation = App.AppHost?.Services.GetService<OperationService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(OperationService)}");
             SelectedDetail = selectedDetail;
             Load();

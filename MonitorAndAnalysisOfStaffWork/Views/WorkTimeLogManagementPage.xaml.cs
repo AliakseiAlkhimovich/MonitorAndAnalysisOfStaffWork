@@ -46,7 +46,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public WorkTimeLogManagementPage()
         {
             InitializeComponent();
-            ServiceEmployee = App.AppHost.Services.GetService<EmployeeService>()
+            ServiceEmployee = App.AppHost?.Services.GetService<EmployeeService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(EmployeeService)}");
             ServiceWorkTimeLog = App.AppHost.Services.GetService<WorkTimeLogService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(WorkTimeLogService)}");

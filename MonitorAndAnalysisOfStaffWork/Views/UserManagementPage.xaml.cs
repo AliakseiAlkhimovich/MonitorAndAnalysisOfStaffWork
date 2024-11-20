@@ -20,7 +20,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public UserManagementPage()
         {
             InitializeComponent();
-            ServiceUser = App.AppHost.Services.GetService<UserService>()
+            ServiceUser = App.AppHost?.Services.GetService<UserService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(UserService)}");
 
             Load();

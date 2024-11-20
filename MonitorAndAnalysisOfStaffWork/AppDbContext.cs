@@ -8,25 +8,25 @@ namespace MonitorAndAnalysisOfStaffWork
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
-            // Автоматическое создание базы данных при необходимости
-            //Database.EnsureCreated();
+             //Автоматическое создание базы данных при необходимости
+            Database.EnsureCreated();
         }
-
+        
         // Конструктор для использования EF Core при создании миграций
         public AppDbContext() : base()
         {
             // Автоматическое создание базы данных при необходимости
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
-
-        public DbSet<UserEntity> Users { get; set; }
-        public DbSet<RoleEntity> Roles { get; set; }
-        public DbSet<DetailEntity> Details { get; set; }
-        public DbSet<EmployeeEntity> Employees { get; set; }
-        public DbSet<ManufacturedDetailEntity> ManufacturedDetails { get; set; }
-        public DbSet<OperationEntity> Operations { get; set; }
-        public DbSet<OperationTypeEntity> OperationTypes { get; set; }
-        public DbSet<WorkTimeLogEntity> WorkTimeLogs { get; set; }
+       
+        public required DbSet<UserEntity> Users { get; set; }
+        public required DbSet<RoleEntity> Roles { get; set; }
+        public required DbSet<DetailEntity> Details { get; set; }
+        public required DbSet<EmployeeEntity> Employees { get; set; }
+        public required DbSet<ManufacturedDetailEntity> ManufacturedDetails { get; set; }
+        public required DbSet<OperationEntity> Operations { get; set; }
+        public required DbSet<OperationTypeEntity> OperationTypes { get; set; }
+        public required DbSet<WorkTimeLogEntity> WorkTimeLogs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

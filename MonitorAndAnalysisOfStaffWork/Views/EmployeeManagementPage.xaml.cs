@@ -19,7 +19,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public EmployeeManagementPage()
         {
             InitializeComponent();
-            ServiceEmployee = App.AppHost.Services.GetService<EmployeeService>()
+            ServiceEmployee = App.AppHost?.Services.GetService<EmployeeService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(EmployeeService)}");
             Load();
         }

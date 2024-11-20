@@ -32,7 +32,7 @@ namespace MonitorAndAnalysisOfStaffWork.Services
         /// <exception cref="Exception"></exception>
         public OrderService()
         {
-            ServiceWorkTimeLog = App.AppHost.Services.GetService<WorkTimeLogService>()
+            ServiceWorkTimeLog = App.AppHost?.Services.GetService<WorkTimeLogService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(WorkTimeLogService)}");
             ServiceDetail = App.AppHost.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");

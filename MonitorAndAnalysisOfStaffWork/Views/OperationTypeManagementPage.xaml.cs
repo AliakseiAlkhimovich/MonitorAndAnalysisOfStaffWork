@@ -18,7 +18,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public OperationTypeManagementPage()
         {
             InitializeComponent();
-            ServiceOperation = App.AppHost.Services.GetService<OperationService>()
+            ServiceOperation = App.AppHost?.Services.GetService<OperationService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(OperationService)}");
         }
 

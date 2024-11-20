@@ -28,7 +28,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         /// <exception cref="Exception"></exception>
         public DetailManagementPage()
         {
-            ServiceDetail = App.AppHost.Services.GetService<DetailService>()
+            ServiceDetail = App.AppHost?.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");
             ServiceOrder = App.AppHost.Services.GetService<OrderService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(OrderService)}");

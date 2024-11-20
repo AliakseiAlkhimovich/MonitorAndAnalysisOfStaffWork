@@ -39,7 +39,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         public OperationManagementPage()
         {
             InitializeComponent();
-            ServiceOperation = App.AppHost.Services.GetService<OperationService>()
+            ServiceOperation = App.AppHost?.Services.GetService<OperationService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(OperationService)}");
             ServiceDetail = App.AppHost.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");

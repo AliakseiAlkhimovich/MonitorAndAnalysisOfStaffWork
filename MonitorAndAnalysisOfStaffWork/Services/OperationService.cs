@@ -20,7 +20,7 @@ namespace MonitorAndAnalysisOfStaffWork.Services
         /// <exception cref="Exception"></exception>
         public OperationService()
         {
-            ContextApp = App.AppHost.Services.GetService<AppDbContext>()
+            ContextApp = App.AppHost?.Services.GetService<AppDbContext>()
                 ?? throw new Exception($"Ошибка при попытки получить контекст БД: {nameof(AppDbContext)}");
 
             ContextApp.ChangeTracker.LazyLoadingEnabled = false;

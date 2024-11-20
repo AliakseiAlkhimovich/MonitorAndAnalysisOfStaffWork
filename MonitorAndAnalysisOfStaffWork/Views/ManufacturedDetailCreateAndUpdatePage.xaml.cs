@@ -60,7 +60,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         /// <exception cref="Exception"></exception>
         public ManufacturedDetailCreateAndUpdatePage()
         {
-            ServiceEmployee = App.AppHost.Services.GetService<EmployeeService>()
+            ServiceEmployee = App.AppHost?.Services.GetService<EmployeeService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(EmployeeService)}");
             ServiceDetail = App.AppHost.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");
@@ -78,7 +78,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
         /// <exception cref="Exception"></exception>
         public ManufacturedDetailCreateAndUpdatePage(ManufacturedDetailEntity manufacturedDetail)
         {
-            ServiceEmployee = App.AppHost.Services.GetService<EmployeeService>()
+            ServiceEmployee = App.AppHost?.Services.GetService<EmployeeService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(EmployeeService)}");
             ServiceDetail = App.AppHost.Services.GetService<DetailService>()
                 ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(DetailService)}");
