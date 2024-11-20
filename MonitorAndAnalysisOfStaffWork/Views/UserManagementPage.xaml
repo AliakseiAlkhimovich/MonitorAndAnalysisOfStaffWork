@@ -23,9 +23,9 @@
         <!-- Row 2 -->
         <DataGrid Grid.Row="2" Name="UserDataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Полное имя пользователя" Width="*" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Имя пользователя для авторизации" Width="*" Binding="{Binding Username}"/>
-                <DataGridTextColumn Header="Пароль" Width="*" Binding="{Binding HasPasswordString}"/>
+                <DataGridTextColumn Header="Полное имя пользователя" Width="1.5*" Binding="{Binding FullName}"/>
+                <DataGridTextColumn Header="Имя пользователя для авторизации" Width="2*" Binding="{Binding Username}"/>
+                <DataGridTextColumn Header="Пароль" Width="1.4*" Binding="{Binding HasPasswordString}"/>
                 <DataGridTextColumn Header="Роль в системе" Width="*" Binding="{Binding RoleName}"/>
 
                 <!-- Новый столбец с кнопками -->

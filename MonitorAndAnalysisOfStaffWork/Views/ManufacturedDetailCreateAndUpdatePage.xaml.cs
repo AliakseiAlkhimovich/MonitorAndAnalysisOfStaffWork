@@ -186,7 +186,7 @@ namespace MonitorAndAnalysisOfStaffWork.Views
             var searchText = EmployeeSearchBox.Text;
 
             // Поиск начинается при вводе 3 и более символов
-            if (searchText.Length >= 3)
+            if (searchText.Length >= 1)
             {
                 List<EmployeeEntity> employees = await ServiceEmployee.ListByNumber(searchText);
                 ClearEmployeeListView();

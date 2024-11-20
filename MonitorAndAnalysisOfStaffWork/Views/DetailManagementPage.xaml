@@ -25,7 +25,7 @@
                 <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Name}"/>
                 <DataGridTextColumn Header="Номер детали (артикул)" Width="*" Binding="{Binding Number}"/>
                 <DataGridTextColumn Header="Обозначение"  Width="*" Binding="{Binding Designation}"/>
-                <DataGridTemplateColumn Header="" Width="125">
+                <DataGridTemplateColumn Header="Управление" Width="125">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">

@@ -43,6 +43,20 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
+                <!-- <DataGrid Grid.Row="1" Grid.Column="0" Name="EmployeeListView" 
+               ItemsSource="{Binding FilteredEmployees}" 
+               AutoGenerateColumns="False" 
+               IsReadOnly="True" 
+               SelectionChanged="EmployeeListView_SelectionChanged">
+               <DataGrid.Columns>
+               <DataGridTextColumn Header="Табельный номер" Binding="{Binding Number}" SortMemberPath="Number"/>
+               <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" SortMemberPath="FullName"/>
+               <DataGridTextColumn Header="Должность" Binding="{Binding Position}" SortMemberPath="Position"/>
+               </DataGrid.Columns>
+                      </DataGrid>-->
+                
+                
+                
                 <!-- -->
                 <Label Grid.Row="2" x:Name="SelectedEmployeeLabel" FontSize="12" HorizontalAlignment="Center" VerticalAlignment="Center">...</Label>
             </Grid>
