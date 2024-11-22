@@ -23,9 +23,33 @@
         <!-- Row 2 -->
         <DataGrid Grid.Row="2" Name="EmployeeDataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Табельный номер сотрудника" Width="190" Binding="{Binding Number}"/>
-                <DataGridTextColumn Header="Полное имя сотрудника" Width="*" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Должность сотрудника"  Width="*" Binding="{Binding Position}"/>
+                <DataGridTextColumn Header="Табельный номер сотрудника" Width="190" Binding="{Binding Number}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Полное имя сотрудника" Width="*" Binding="{Binding FullName}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Должность сотрудника"  Width="*" Binding="{Binding Position}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
 
                 <!-- Новый столбец с кнопками -->
                 <DataGridTemplateColumn Header="" Width="125">

@@ -23,10 +23,42 @@
         <!-- Row 2 -->
         <DataGrid Grid.Row="2" Name="UserDataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Полное имя пользователя" Width="1.5*" Binding="{Binding FullName}"/>
-                <DataGridTextColumn Header="Имя пользователя для авторизации" Width="2*" Binding="{Binding Username}"/>
-                <DataGridTextColumn Header="Пароль" Width="1.4*" Binding="{Binding HasPasswordString}"/>
-                <DataGridTextColumn Header="Роль в системе" Width="*" Binding="{Binding RoleName}"/>
+                <DataGridTextColumn Header="Полное имя пользователя" Width="1.5*" Binding="{Binding FullName}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Имя пользователя для авторизации" Width="2*" Binding="{Binding Username}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Пароль" Width="1.4*" Binding="{Binding HasPasswordString}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Роль в системе" Width="*" Binding="{Binding RoleName}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
 
                 <!-- Новый столбец с кнопками -->
                 <DataGridTemplateColumn Header="" Width="125">

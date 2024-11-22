@@ -22,9 +22,33 @@
         <!-- Row 2 -->
         <DataGrid Grid.Row="2" Name="DetailDataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Name}"/>
-                <DataGridTextColumn Header="Номер детали (артикул)" Width="*" Binding="{Binding Number}"/>
-                <DataGridTextColumn Header="Обозначение"  Width="*" Binding="{Binding Designation}"/>
+                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Name}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Номер детали (артикул)" Width="*" Binding="{Binding Number}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Обозначение"  Width="*" Binding="{Binding Designation}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="HorizontalAlignment" Value="Center"/>
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                        <Setter Property="TextAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTemplateColumn Header="Управление" Width="125">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
