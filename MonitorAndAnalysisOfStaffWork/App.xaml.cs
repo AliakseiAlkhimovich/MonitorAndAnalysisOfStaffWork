@@ -31,7 +31,7 @@ namespace MonitorAndAnalysisOfStaffWork
                 {
                     // Регистрация DbContext с подключением к БД
                     services.AddDbContext<AppDbContext>(options =>
-                        options.UseSqlServer(Configuration.GetConnectionString("LocalDBConnection")));
+                        options.UseSqlServer(Configuration.GetConnectionString("MySQLConnection")));
 
                     services.AddScoped<AuthenticationService>();
                     services.AddScoped<UserService>();

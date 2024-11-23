@@ -29,10 +29,10 @@
         <DataGrid Grid.Row="2" Name="OperationTypeDataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Name}"/>
-                <DataGridTemplateColumn Header="" Width="125">
+                <DataGridTemplateColumn Header="Управление" Width="125">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                 <!-- Кнопка для удаления строки -->
                                 <Button Style="{DynamicResource btn-delete-datagrid}" Content="Удалить" x:Name="DeleteDataGridButton" Click="DeleteDataGridButton_Click"/>
                             </StackPanel>
