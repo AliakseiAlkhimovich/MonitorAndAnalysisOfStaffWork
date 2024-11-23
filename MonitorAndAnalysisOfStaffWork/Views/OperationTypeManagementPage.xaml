@@ -28,7 +28,13 @@
         <!-- Row 2 -->
         <DataGrid Grid.Row="2" Name="OperationTypeDataGrid" AutoGenerateColumns="False" IsReadOnly="True" >
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Name}"/>
+                <DataGridTextColumn Header="Наименование" Width="*" Binding="{Binding Name}">
+                <DataGridTextColumn.ElementStyle>
+                    <Style TargetType="TextBlock">
+                        <Setter Property="VerticalAlignment" Value="Center"/>
+                    </Style>
+                </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
                 <DataGridTemplateColumn Header="Управление" Width="125">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
