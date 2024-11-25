@@ -45,7 +45,6 @@
                 <Button Style="{DynamicResource btn-danger-sm}" x:Name="LogoutButton" Width="75" Click="LogoutButton_Click">Выйти</Button>
             </StackPanel>
         </Grid>
-        
         <Frame Grid.Row="1" Grid.Column="0" x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
