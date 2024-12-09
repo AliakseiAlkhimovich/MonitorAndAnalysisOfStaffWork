@@ -232,7 +232,7 @@
             </Setter>
         </Style>
 
-        <!-- Стиль для кнопки просмотра (синий цвет и иконка "глаз") -->
+        <!-- Стиль для кнопки просмотра (синий цвет ) -->
         <Style x:Key="btn-view-datagrid" TargetType="Button">
             <Setter Property="Foreground" Value="#FFFFFF"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
@@ -257,7 +257,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        <!-- Стиль для кнопки удаления (красный цвет и иконка "удаление") -->
+        <!-- Стиль для кнопки удаления (красный цвет ) -->
         <Style x:Key="btn-delete-datagrid" TargetType="Button">
             <Setter Property="Foreground" Value="#FFFFFF"/>
             <Setter Property="FontFamily" Value="Segoe UI"/>
