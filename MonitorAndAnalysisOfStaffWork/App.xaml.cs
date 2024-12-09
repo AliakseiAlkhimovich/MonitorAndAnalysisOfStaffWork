@@ -29,7 +29,7 @@ namespace MonitorAndAnalysisOfStaffWork
         protected override void OnStartup(StartupEventArgs e)
         {
             // Имя строки подключения
-            string connectionStringName = "MSQLConnection";
+            string connectionStringName = "LocalDBConnection";
 
             // Проверка на существование строки подключения
             var connectionString = Configuration.GetConnectionString(connectionStringName);
