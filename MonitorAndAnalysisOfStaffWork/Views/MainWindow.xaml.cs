@@ -254,7 +254,7 @@ namespace MonitorAndAnalysisOfStaffWork
             MainFrame.Navigate(new LoginPage()); // При загрузке отображаем страницу авторизации
 
         }
-        //1
+        
         /// <summary>
         /// Событие на кнопке - О программе
         /// </summary>
