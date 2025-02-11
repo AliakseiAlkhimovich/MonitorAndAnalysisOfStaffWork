@@ -71,7 +71,7 @@ namespace MonitorAndAnalysisOfStaffWork.Entities
         /// Сводное наименование детали
         /// </summary>
         [NotMapped]
-        public string DetailName { get { return $"{Detail.Number}.{Detail.Name} - {Detail.Designation}"; } }
+        public string DetailName => $"{Detail.Number}      {Detail.Name} - {Detail.Designation}";
 
     }
 }
