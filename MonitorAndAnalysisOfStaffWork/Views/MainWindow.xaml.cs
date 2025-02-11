@@ -2,6 +2,8 @@
 using MonitorAndAnalysisOfStaffWork.Views;
 using System.ComponentModel;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace MonitorAndAnalysisOfStaffWork
 {
@@ -33,6 +35,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void UpdateToolbar()
         {
             UserEntity? user = UserSession.CurrentUser;
+
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+
             if (user == null)
             {
                 LoginButton.Visibility = Visibility.Visible;
@@ -56,10 +62,8 @@ namespace MonitorAndAnalysisOfStaffWork
                 OperationManagementButton.Visibility = Visibility.Collapsed;
                 OperationManagementButtonSeparator.Visibility = Visibility.Collapsed;
 
-
                 OperationTypeManagementButton.Visibility = Visibility.Collapsed;
                 OperationTypeManagementButtonSeparator.Visibility = Visibility.Collapsed;
-
 
                 LoginTitleTextBlock.Text = "Пользователь не авторизован";
                 LogoutButton.Visibility = Visibility.Collapsed;
@@ -68,6 +72,7 @@ namespace MonitorAndAnalysisOfStaffWork
             {
                 LoginButton.Visibility = Visibility.Collapsed;
                 LoginButtoSeparatorn.Visibility = Visibility.Collapsed;
+
                 if (user.RoleId == 1)
                 {
                     UserManagementButton.Visibility = Visibility.Visible;
@@ -75,7 +80,6 @@ namespace MonitorAndAnalysisOfStaffWork
                 }
                 else
                 {
-
                     UserManagementButton.Visibility = Visibility.Collapsed;
                     UserManagementButtonSeparator.Visibility = Visibility.Collapsed;
                 }
@@ -95,14 +99,34 @@ namespace MonitorAndAnalysisOfStaffWork
                 OperationManagementButton.Visibility = Visibility.Visible;
                 OperationManagementButtonSeparator.Visibility = Visibility.Visible;
 
-
                 OperationTypeManagementButton.Visibility = Visibility.Visible;
                 OperationTypeManagementButtonSeparator.Visibility = Visibility.Visible;
 
                 LoginTitleTextBlock.Text = user.FullName;
                 LogoutButton.Visibility = Visibility.Visible;
 
+                // Изменение цвета активной вкладки
+                SetActiveTabColor(ManufacturedDetailManagementButton); // активная вкладка
             }
+        }
+
+        // Метод для сброса цвета всех вкладок
+        private void ResetTabColors()
+        {
+            // Установите цвет по умолчанию для всех вкладок
+            ManufacturedDetailManagementButton.Background = Brushes.Transparent;
+            EmployeeManagementButton.Background = Brushes.Transparent;
+            WorkTimeLogManagemenButton.Background = Brushes.Transparent;
+            DetailManagementButton.Background = Brushes.Transparent;
+            OperationManagementButton.Background = Brushes.Transparent;
+            OperationTypeManagementButton.Background = Brushes.Transparent;
+            UserManagementButton.Background = Brushes.Transparent; // Если видимая
+        }
+
+        // Метод для установки цвета активной вкладки
+        private void SetActiveTabColor(Button activeButton)
+        {
+            activeButton.Background = Brushes.LightBlue; // Установка голубого цвета для активной вкладки
         }
 
         /// <summary>
@@ -113,6 +137,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new LoginPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(ManufacturedDetailManagementButton); // активная вкладка
         }
 
         /// <summary>
@@ -123,6 +151,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void UserManagementButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new UserManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(UserManagementButton); // активная вкладка
         }
         /// <summary>
         /// Открыть страницу "Сотрудники"
@@ -132,6 +164,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void ManufacturedDetailManagementButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new ManufacturedDetailManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(ManufacturedDetailManagementButton); // активная вкладка
         }
 
         /// <summary>
@@ -142,6 +178,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void EmployeeManagementButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new EmployeeManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(EmployeeManagementButton); // активная вкладка
         }
 
         /// <summary>
@@ -152,6 +192,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void WorkTimeLogManagemenButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new WorkTimeLogManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(WorkTimeLogManagemenButton); // активная вкладка
         }
 
 
@@ -163,6 +207,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void DetailManagementButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new DetailManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(DetailManagementButton); // активная вкладка
         }
 
 
@@ -174,6 +222,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void OperationManagementButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new OperationManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(OperationManagementButton); // активная вкладка
         }
 
 
@@ -185,6 +237,10 @@ namespace MonitorAndAnalysisOfStaffWork
         private void OperationTypeManagementButton_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new OperationTypeManagementPage());
+            // Сброс цвета всех вкладок
+            ResetTabColors();
+            // Изменение цвета активной вкладки
+            SetActiveTabColor(OperationTypeManagementButton); // активная вкладка
         }
 
         /// <summary>
