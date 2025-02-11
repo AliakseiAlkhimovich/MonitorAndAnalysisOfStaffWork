@@ -11,57 +11,32 @@ namespace MonitorAndAnalysisOfStaffWork.Views
     /// </summary>
     public partial class UserCreateAndUpdateWindow : Window
     {
-        /// <summary>
-        /// Учетная запись для обновления
-        /// </summary>
         private UserEntity? UpdateUser { get; set; } = null;
-
-        /// <summary>
-        /// Сервис по аутентификации
-        /// </summary>
         private readonly UserService ServiceUser;
-
-        /// <summary>
-        ///  Сервис по аутентификации
-        /// </summary>
         private readonly AuthenticationService ServiceAuthentication;
 
-
-        /// <summary>
-        /// Окно создания и редактирования учетной записи
-        /// </summary>
-        /// <param name="context"></param>
         public UserCreateAndUpdateWindow()
         {
             InitializeComponent();
             ServiceUser = App.AppHost?.Services.GetService<UserService>()
-                ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(UserService)}");
+                ?? throw new Exception($"Ошибка при инициализации сервиса: {nameof(UserService)}");
             ServiceAuthentication = App.AppHost.Services.GetService<AuthenticationService>()
-                ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(AuthenticationService)}");
+                ?? throw new Exception($"Ошибка при инициализации сервиса: {nameof(AuthenticationService)}");
             Load();
         }
 
-
-        /// <summary>
-        /// Окно создания и редактирования учетной записи
-        /// </summary>
-        /// <param name="context"></param>
         public UserCreateAndUpdateWindow(UserEntity updateUser)
         {
             InitializeComponent();
             ServiceUser = App.AppHost?.Services.GetService<UserService>()
-                ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(UserService)}");
+                ?? throw new Exception($"Ошибка при инициализации сервиса: {nameof(UserService)}");
             ServiceAuthentication = App.AppHost.Services.GetService<AuthenticationService>()
-                ?? throw new Exception($"Ошибка при инициализация сервиса: {nameof(AuthenticationService)}");
+                ?? throw new Exception($"Ошибка при инициализации сервиса: {nameof(AuthenticationService)}");
             UpdateUser = updateUser;
             TitleWindow.Text = $"Обновление учетной записи {UpdateUser.Username}";
             Load();
         }
 
-        /// <summary>
-        /// Загрузка данных
-        /// </summary>
-        /// <returns></returns>
         private void Load()
         {
             List<RoleEntity> roles = ServiceAuthentication.GetRoles();
@@ -76,33 +51,39 @@ namespace MonitorAndAnalysisOfStaffWork.Views
             }
         }
 
-        /// <summary>
-        /// Создать или обновить учетную запись
-        /// </summary>
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
+            PasswordWarningTextBlock.Visibility = Visibility.Collapsed;
 
-            if (string.IsNullOrEmpty(UsernameTextBox.Text)  || FullNameTextBox.Text == string.Empty || RoleComboBox.SelectedItem == null)
+            if (string.IsNullOrEmpty(UsernameTextBox.Text) || string.IsNullOrEmpty(FullNameTextBox.Text) || RoleComboBox.SelectedItem == null)
             {
                 MessageBox.Show("Заполните все поля", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
 
+            // Проверка длины пароля
+            if (PasswordBox.Password.Length < 6)
+            {
+                PasswordWarningTextBlock.Text = "Пароль должен содержать не менее 6 символов.";
+                PasswordWarningTextBlock.Visibility = Visibility.Visible;
+                return;
+            }
+
             if (PasswordBox.Password != PasswordRepeatBox.Password)
             {
-                MessageBox.Show("Введеные пароли не совпадают", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Введенные пароли не совпадают", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
-
             }
+
             try
             {
                 if (UpdateUser == null)
                 {
-                    UserEntity user = await ServiceUser.Create(UsernameTextBox.Text, PasswordBox.Password, FullNameTextBox.Text, (int)RoleComboBox.SelectedValue);
+                    await ServiceUser.Create(UsernameTextBox.Text, PasswordBox.Password, FullNameTextBox.Text, (int)RoleComboBox.SelectedValue);
                 }
                 else
                 {
-                    UserEntity user = await ServiceUser.Update(UpdateUser.Id, UsernameTextBox.Text, PasswordBox.Password, FullNameTextBox.Text, (int)RoleComboBox.SelectedValue);
+                    await ServiceUser.Update(UpdateUser.Id, UsernameTextBox.Text, PasswordBox.Password, FullNameTextBox.Text, (int)RoleComboBox.SelectedValue);
                 }
             }
             catch (Exception ex)
@@ -112,15 +93,30 @@ namespace MonitorAndAnalysisOfStaffWork.Views
             Close();
         }
 
-        /// <summary>
-        /// Событие на кнопку "Отмена"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
 
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            ValidatePassword();
+        }
+
+        private void PasswordRepeatBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            ValidatePassword();
+        }
+
+        private void ValidatePassword()
+        {
+            PasswordWarningTextBlock.Visibility = Visibility.Collapsed;
+
+            if (PasswordBox.Password.Length < 6)
+            {
+                PasswordWarningTextBlock.Text = "Пароль должен содержать не менее 6 символов.";
+                PasswordWarningTextBlock.Visibility = Visibility.Visible;
+            }
+        }
     }
 }

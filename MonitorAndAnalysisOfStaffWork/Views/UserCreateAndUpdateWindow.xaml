@@ -8,32 +8,35 @@
         Title="Создание или обновление учетной записи" Height="400" Width="400">
     <Grid Margin="20">
         <!-- Заголовок -->
-        <TextBlock x:Name="TitleWindow" Text="Добавить новую учетную запись" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        <TextBlock x:Name="TitleWindow" Text="Добавить новую учетную запись" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,20"/>
 
-        <!-- Метка для имени пользователя -->
-        <TextBlock Text="Имя пользователя:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,30,5,0" />
-        <TextBox x:Name="UsernameTextBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,50,5,0" />
+        <!-- Основной контейнер для полей ввода -->
+        <StackPanel VerticalAlignment="Top" Margin="0,29,0,0">
+            <!-- Метка для имени пользователя -->
+            <TextBlock Text="Имя пользователя:" />
+            <TextBox x:Name="UsernameTextBox" Margin="0,0,0,10" />
 
-        <!-- Метка для пароля -->
-        <TextBlock Text="Пароль:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,80,5,0" />
-        <PasswordBox x:Name="PasswordBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,100,5,0" />
+            <!-- Метка для пароля -->
+            <TextBlock Text="Пароль:" />
+            <PasswordBox x:Name="PasswordBox" Margin="0,0,0,10" PasswordChanged="PasswordBox_PasswordChanged" />
+            <TextBlock x:Name="PasswordWarningTextBlock" Foreground="Red" Visibility="Collapsed" />
 
-        <!-- Метка для пароля -->
-        <TextBlock Text="Повторите пароль:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,130,5,0" />
-        <PasswordBox x:Name="PasswordRepeatBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,150,5,0" />
+            <!-- Метка для повторного ввода пароля -->
+            <TextBlock Text="Повторите пароль:" />
+            <PasswordBox x:Name="PasswordRepeatBox" Margin="0,0,0,10" PasswordChanged="PasswordRepeatBox_PasswordChanged" />
 
+            <!-- Метка для полного имени -->
+            <TextBlock Text="Полное имя:" />
+            <TextBox x:Name="FullNameTextBox" Margin="0,0,0,10" />
 
-        <!-- Метка для полного имени -->
-        <TextBlock Text="Полное имя:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,180,5,0" />
-        <TextBox x:Name="FullNameTextBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,200,5,0" />
-
-        <!-- Выпадающий список для выбора роли -->
-        <TextBlock Text="Роль:" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,230,5,0" />
-        <ComboBox x:Name="RoleComboBox" VerticalAlignment="Top" HorizontalAlignment="Stretch" Margin="5,250,5,0" />
+            <!-- Выпадающий список для выбора роли -->
+            <TextBlock Text="Роль:" />
+            <ComboBox x:Name="RoleComboBox" Margin="0,0,0,20" />
+        </StackPanel>
 
         <!-- Кнопки для сохранения и отмены -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,0,0">
-            <Button Style="{DynamicResource btn-success}" Content="Сохранить" Width="100" Click="SaveButton_Click" />
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button Style="{DynamicResource btn-success}" Content="Сохранить" Width="100" Click="SaveButton_Click" Margin="0,0,5,0"/>
             <Button Style="{DynamicResource btn-danger}" Content="Отмена" Width="100" Click="CancelButton_Click" />
         </StackPanel>
     </Grid>
